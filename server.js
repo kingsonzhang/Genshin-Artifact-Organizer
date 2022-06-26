@@ -4,6 +4,13 @@ const APP = EXPRESS();
 const PORT = 8000;
 
 const ARTIFACTSETS = {
+    "EchosOfAnOffering":{
+        "Flower" : "Soulscent Bloom",
+        "Feather" : "Jade Leaf",
+        "Timepiece" : "Symbol of Felicitation",
+        "Goblet" : "Chalice of the Font",
+        "Circlet" : "Flowing Rings"
+    },
     "BlizzardStrayer":{
         "Flower" : "Snowswept Memory",
         "Feather" : "Icebreaker's Resolve",
