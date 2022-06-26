@@ -1,6 +1,13 @@
+const { application } = require("express");
 const EXPRESS = require("express");
 const APP = EXPRESS();
 
+/*
+Any files in the "public" folder in the current directory
+Will be served to the client
+MEANING SCRIPTS AND CSS HREFS DO NOT NEED A GET/READ REQUEST
+*/
+//APP.use(EXPRESS.static("public"));
 const PORT = 8000;
 
 const ARTIFACTSETS = {
