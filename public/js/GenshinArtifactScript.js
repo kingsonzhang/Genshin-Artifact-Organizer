@@ -39,7 +39,7 @@ document.querySelectorAll(".ArtifactSet").forEach(x => x.addEventListener("click
     currentlySelected.style.color = "white";
 
     changeArtifacts(current);
-}, false));
+}));
 
 //Loop through each type of artifact pieces and get their img
 //Update the cooresponding img srcs
