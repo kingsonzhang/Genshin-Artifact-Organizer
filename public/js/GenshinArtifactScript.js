@@ -43,16 +43,9 @@ document.querySelectorAll(".ArtifactSet").forEach(x => x.addEventListener("click
 
 //Loop through each type of artifact pieces and get their img
 //Update the cooresponding img srcs
-async function changeArtifacts(eventId){
-    function loadPictures (){
-        return new Promise((resolve, reject) =>{
-            const PIECES = ["Flower", "Feather", "Timepiece", "Goblet", "Circlet"];
-            PIECES.forEach(x =>{
-                document.getElementById(x).src = `./images/${eventId}/${eventId}${x}.jpg`;
-            });
-            resolve();
-        });
-    }
-
-    await loadPictures();
+function changeArtifacts(eventId){
+    const PIECES = ["Flower", "Feather", "Timepiece", "Goblet", "Circlet"];
+    PIECES.forEach(x =>{
+        document.getElementById(x).src = `./images/${eventId}/${eventId}${x}.jpg`;
+    });
 }
