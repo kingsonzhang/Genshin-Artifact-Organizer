@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Artifact Sorter</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/ArtifactsStyle.css">
+</head>
+<body>
+    <section id="WholeDisplay">
+        <section id="ArtifactPanel">
+            <h1>Artifact Sorter</h1>
+            <section id="ArtifactSelection">
+                <h3>Add Artifacts</h3>
+                <h3>Sort Artifacts</h3>
+            </section>
+            <section id="ArtifactForm">
+                <form id="AddArtifact" action="/artifacts/addArtifact" method="POST">
+                    <section>
+                        <select name="ArtifactSet" id="ArtifactSet" autocomplete="off" required>
+                            <option disabled selected value> -- select a set -- </option>
+                            <option value="BlizzardStrayer">Blizzard Strayer</option>
+                            <option value="PaleFlame">Pale Flame</option>
+                            <option value="ThunderingFury">Thundering Fury</option>
+                        </select>
+                        <select name="ArtifactPiece" id="ArtifactPiece" autocomplete="off" required>
+                            <option disabled selected value> -- select a piece -- </option>
+                            <option value="Flower">Flower</option>
+                            <option value="Feather">Feather</option>
+                            <option value="Timepiece">Timepiece</option>
+                            <option value="Goblet">Goblet</option>
+                            <option value="Circlet">Circlet</option>
+                        </select>
+                    </section>
+                    <section>
+                        <select name="MainStat" id="MainStat" autocomplete="off" required>
+                            <option disabled selected value> -- select main stat -- </option>
+                            <option class="CritRate stats" value="CritRate">Crit Rate</option>
+                            <option class="CritDamage stats" value="CritDamage">Crit Damage</option>
+                            <option class="EM" value="EM stats">Elemental Mastery</option>
+                            <option class="ER" value="ER stats">Energy Recharge</option>
+                            <option class="AtkPercentage stats" value="Atk%">Atk%</option>
+                            <option class="HPPercentage stats" value="HP%">HP%</option>
+                            <option class="DefPercentage stats" value="Def%">Def%</option>
+                            <option class="FlatAtk stats" value="FlatAtk">Flat Attack</option>
+                            <option class="FlatHP stats" value="FlatHP">Flat HP</option>
+                            <option class="DMGBonusMain stats" value="DamageBonus">Damage Bonus</option>
+                            <option class="HealingBonusMain stats" value="HealingBonus">Healing Bonus</option>
+                        </select>
+                        <input type="text" placeholder="Enter value" name="MainStatValue" required>
+                    </section>
+                    <section>
+                        <select name="SubstatOne" id="SubstatOne" autocomplete="off" required>
+                            <option disabled selected value> -- select substat -- </option>
+                            <option class="CritRate stats" value="CritRate">Crit Rate</option>
+                            <option class="CritDamage stats" value="CritDamage">Crit Damage</option>
+                            <option class="EM stats" value="EM">Elemental Mastery</option>
+                            <option class="ER stats" value="ER">Energy Recharge</option>
+                            <option class="AtkPercentage stats" value="Atk%">Atk%</option>
+                            <option class="HPPercentage stats" value="HP%">HP%</option>
+                            <option class="DefPercentage stats" value="Def%">Def%</option>
+                            <option class="FlatAtk stats" value="FlatAtk">Flat Attack</option>
+                            <option class="FlatHP stats" value="FlatHP">Flat HP</option>
+                            <option class="FlatDef stats value="FlatDef">Flat Defense</option>
+                        </select>
+                        <input type="text" placeholder="Enter value" name="SubstatOneValue" required>
+                    </section>
+                    <section>
+                        <select name="SubstatTwo" id="SubstatTwo" autocomplete="off" required>
+                            <option disabled selected value> -- select substat -- </option>
+                            <option class="CritRate stats" value="CritRate">Crit Rate</option>
+                            <option class="CritDamage stats" value="CritDamage">Crit Damage</option>
+                            <option class="EM stats" value="EM">Elemental Mastery</option>
+                            <option class="ER stats" value="ER">Energy Recharge</option>
+                            <option class="AtkPercentage stats" value="Atk%">Atk%</option>
+                            <option class="HPPercentage stats" value="HP%">HP%</option>
+                            <option class="DefPercentage stats" value="Def%">Def%</option>
+                            <option class="FlatAtk stats" value="FlatAtk">Flat Attack</option>
+                            <option class="FlatHP stats" value="FlatHP">Flat HP</option>
+                            <option class="FlatDef stats" value="FlatDef">Flat Defense</option>
+                        </select>
+                        <input type="text" placeholder="Enter value" name="SubstatTwoValue" required>
+                    </section>
+                    <section>
+                        <select name="SubstatThree" id="SubstatThree" autocomplete="off" required>
+                            <option disabled selected value> -- select substat -- </option>
+                            <option class="CritRate stats" value="CritRate">Crit Rate</option>
+                            <option class="CritDamage stats" value="CritDamage">Crit Damage</option>
+                            <option class="EM stats" value="EM">Elemental Mastery</option>
+                            <option class="ER stats" value="ER">Energy Recharge</option>
+                            <option class="AtkPercentage stats" value="Atk%">Atk%</option>
+                            <option class="HPPercentage stats" value="HP%">HP%</option>
+                            <option class="DefPercentage stats" value="Def%">Def%</option>
+                            <option class="FlatAtk stats" value="FlatAtk">Flat Attack</option>
+                            <option class="FlatHP stats" value="FlatHP">Flat HP</option>
+                            <option class="FlatDef stats" value="FlatDef">Flat Defense</option>
+                        </select>
+                        <input type="text" placeholder="Enter value" name="SubstatThreeValue" required>
+                    </section>
+                    <section>
+                        <select name="SubstatFour" id="SubstatFour" autocomplete="off">
+                            <option selected value=""> -- select substat -- </option>
+                            <option class="CritRate stats" value="CritRate">Crit Rate</option>
+                            <option class="CritDamage stats" value="CritDamage">Crit Damage</option>
+                            <option class="EM stats" value="EM">Elemental Mastery</option>
+                            <option class="ER stats" value="ER">Energy Recharge</option>
+                            <option class="AtkPercentage stats" value="Atk%">Atk%</option>
+                            <option class="HPPercentage stats" value="HP%">HP%</option>
+                            <option class="DefPercentage stats" value="Def%">Def%</option>
+                            <option class="FlatAtk stats" value="FlatAtk">Flat Attack</option>
+                            <option class="FlatHP stats" value="FlatHP">Flat HP</option>
+                            <option class="FlatDef stats" value="FlatDef">Flat Defense</option>
+                        </select>
+                        <input type="text" placeholder="Enter value" name="SubstatFourValue">
+                    </section>
+                    <button type="submit" class="btn btn-success" id="AddArtifactButton">Add Artifact</button>
+                </form>
+            </section>
+        </section>
+        <section id="ArtifactDisplay">
+            <header>
+                <h2>Hi <%= userName %>!</h2>
+                <a href="/logout"><button type="button" class="btn btn-danger" id="Logout">Logout</button></a>
+            </header>
+            <section>
+                <ul>
+                    <% for (let i = 0; i < artifacts.length; i++){%>
+                        <li id="<%= artifacts[i][0]%>"><img src="images/<%=`${artifacts[i][1]}`%>/<%=`${artifacts[i][1]}${artifacts[i][2]}.jpg`%>"><i class="fa fa-pencil fa-lg"></i><i class='fa fa-trash fa-lg'></i>
+                        </li>
+                    <%}%>
+                </ul>
+            </section>
+        </section>
+        <section id="ArtifactDetails">
+            Will upgrade to a component using React. I need to display artifacts without having to reload the entire webpage. I also want to move the delete and edit buttons to this panel so the artifacts are displayed much prettier.
+        </section>
+    </section>
+    <script src="js/Artifacts.js"></script>
+</body>
+</html>

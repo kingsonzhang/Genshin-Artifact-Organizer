@@ -1,28 +1,48 @@
-const EXPRESS = require("express");
-const BODYPARSER = require("body-parser");
-
+const EXPRESS = require('express');
 const APP = EXPRESS();
-APP.set("view engine", "ejs");
-APP.use(BODYPARSER.urlencoded({entended: true}));
-APP.use(EXPRESS.static("public"));
-APP.use(BODYPARSER.json());
+const MONGOOSE = require('mongoose');
+const PASSPORT = require('passport');
+const SESSION = require('express-session');
+const MONGOSTORE = require('connect-mongo')(SESSION);
+const FLASH = require('express-flash');
+const LOGGER = require('morgan');
+const METHODOVERRIDE = require('method-override');
+const CONNECTDB = require('./config/database');
+const MAINROUTES = require('./routes/main');
+const ARTIFACTROUTES = require("./routes/ArtifactRoute");
 
-/*
-Any files in the "public" folder in the current directory
-Will be served to the client
-MEANING SCRIPTS AND CSS HREFS DO NOT NEED A GET/READ REQUEST
-*/
-//APP.use(EXPRESS.static("public"));
-const PORT = 8000;
+require('dotenv').config({path: './config/.env'})
 
-APP.listen(process.env.PORT || PORT, () =>{
-    console.log(`Server is now running on Port ${PORT}. Better go catch it!`)
-})
+// Passport config
+require('./config/passport')(PASSPORT)
 
-APP.get("/", (req, res) =>{
-    res.render("GenshinArtifactSorter.ejs", {});
-});
+CONNECTDB()
 
-APP.get("/:ArtifactSet", (req, res) =>{
-    let artifactSet = req.params.ArtifactSet;
-});
+APP.set('view engine', 'ejs')
+APP.use(EXPRESS.static('public'))
+APP.use(EXPRESS.urlencoded({ extended: true }))
+APP.use(EXPRESS.json())
+APP.use(LOGGER('dev'))
+APP.use(METHODOVERRIDE('_method'));
+// Sessions
+APP.use(
+  SESSION({
+      secret: 'testinggrounds',
+      resave: false,
+      saveUninitialized: false,
+      store: new MONGOSTORE({ mongooseConnection: MONGOOSE.connection }),
+  })
+)
+  
+// Passport middleware
+APP.use(PASSPORT.initialize())
+APP.use(PASSPORT.session())
+
+APP.use(FLASH())
+  
+APP.use('/', MAINROUTES)
+APP.use("/artifacts", ARTIFACTROUTES)
+ 
+APP.listen(process.env.PORT, ()=>{
+    console.log('Server is running, you better catch it!')
+})    

@@ -1,0 +1,120 @@
+/*********************
+    Useful Classes
+*********************/
+.hide{
+    display: none;
+}
+
+/**************
+    SETTINGS
+**************/
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+#WholeDisplay{
+    display: flex;
+    height: 100vh;
+}
+
+/*********************
+    Artifact Panel
+*********************/
+#ArtifactPanel{
+    flex-basis: 20%;
+    background-color: rgba(50, 50, 50, 0.5);
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#ArtifactSelection{
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+    padding: 10px 0 25px 0;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px ;
+}
+
+form > section{
+    flex-basis: 100%;
+    padding: 10px 0;
+    border-bottom: 2px solid black;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.SubstatValues{
+    border: 5px green solid;
+}
+
+#ArtifactPanel button{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/**********************
+    ArtifactDisplay
+**********************/
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+}
+
+header h2{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#ArtifactDisplay{
+    flex-basis: 60%;
+}
+
+#ArtifactDisplay ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#ArtifactDisplay ul li{
+    flex-basis: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: black 3px solid;
+    border-radius: 5%;
+    margin: 10px;
+}
+
+#ArtifactDisplay ul li img{
+    width: 90%;
+    padding-bottom: 10px
+}
+
+#ArtifactDisplay ul li i{
+    padding-bottom: 10px
+}
+
+/**********************
+    ArtifactDetails
+**********************/
+
+#ArtifactDetails{
+    flex-basis: 20%;
+    background-color: rgba(50, 50, 50, 0.5);
+}
